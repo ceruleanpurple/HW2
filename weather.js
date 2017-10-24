@@ -12,12 +12,25 @@ let getWeather = function(info) {
   fetch(openweathermap_api_url).then(convertToJSON).then(updateWeather).catch(displayError);
 }
 
-let updateWeather = function() {
-  let div = document.getElementById("weather");
-  div.innerHTML = "<img class=\"card-img-top  bg-primary\" src=\"http:\/\/openweathermap.org/img/w/01d.png\">  <div class=\"card-body\"> <h4 class=\"card-title\">Paris</h4>
-    <p class=\"card-text\">It is 81 degrees outside.</p> <a id=\"get_forecast\" href=\"#\" class=\"btn btn-primary\">Get Current Temperature</a>";
+let convertToJSON = function(response) {
+  return response.json();
+}
 
+let updateWeather = function(junk) {
+  name = junk.name;
+  temp = junk.main.temp;
+  desc = junk.weather[0].description;
+  icon = junk.weather[0].icon;
+  console.log(name);
+  console.log(temp);
+  console.log(desc);
+  console.log(icon);
+  console.log(junk);
 
+  
+  // let div = document.getElementById("weather");
+  // div.innerHTML = "<img class=\"card-img-top  bg-primary\" src=\"http:\/\/openweathermap.org/img/w/01d.png\">  <div class=\"card-body\"> <h4 class=\"card-title\">Paris</h4>
+  // //   <p class=\"card-text\">It is 81 degrees outside.</p> <a id=\"get_forecast\" href=\"#\" class=\"btn btn-primary\">Get Current Temperature</a>";
 }
 
 let displayError = function(error) {
