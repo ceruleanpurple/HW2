@@ -31,7 +31,7 @@ let updateWeather = function(junk) {
   // console.log(temp);
   // console.log(desc);
   // console.log(icon);
-  console.log(junk);
+  // console.log(junk);
 
   let div = document.getElementById("weather");
   imgUrl = "http://openweathermap.org/img/w/" + icon + ".png";
@@ -39,10 +39,10 @@ let updateWeather = function(junk) {
   div.querySelector(".card-title").innerHTML = name;
   div.querySelector(".card-text").innerHTML = "It is " + temp + " degrees outside.";
   // console.log(imgUrl);
-  lat = junk.coord.lat;
-  lon = junk.coord.lon;
-  console.log(lat);
-  console.log(lon);
+  // lat = junk.coord.lat;
+  // lon = junk.coord.lon;
+  // console.log(lat);
+  // console.log(lon);
 
 
   }
