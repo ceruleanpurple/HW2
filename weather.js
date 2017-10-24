@@ -21,17 +21,22 @@ let updateWeather = function(junk) {
   temp = junk.main.temp;
   desc = junk.weather[0].description;
   icon = junk.weather[0].icon;
-  console.log(name);
-  console.log(temp);
-  console.log(desc);
-  console.log(icon);
-  console.log(junk);
 
-  
-  // let div = document.getElementById("weather");
-  // div.innerHTML = "<img class=\"card-img-top  bg-primary\" src=\"http:\/\/openweathermap.org/img/w/01d.png\">  <div class=\"card-body\"> <h4 class=\"card-title\">Paris</h4>
-  // //   <p class=\"card-text\">It is 81 degrees outside.</p> <a id=\"get_forecast\" href=\"#\" class=\"btn btn-primary\">Get Current Temperature</a>";
-}
+  temp = Math.round(temp);
+  // console.log(name);
+  // console.log(temp);
+  // console.log(desc);
+  // console.log(icon);
+  // console.log(junk);
+
+  let div = document.getElementById("weather");
+  imgUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+  div.querySelector(".card-img-top").src = imgUrl;
+  div.querySelector(".card-title").innerHTML = name;
+  div.querySelector(".card-text").innerHTML = "It is " + temp + " degrees outside.";
+
+  // console.log(imgUrl);
+  }
 
 let displayError = function(error) {
   console.debug(error);
